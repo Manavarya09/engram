@@ -49,8 +49,10 @@
   "bugs": {
     "url": "https://github.com/Manavarya09/engram/issues"
   },
-  "devDependencies": {
-    "@types/node": "^22.10.0",
+  "dependencies": {
     "typescript": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0"
   }
 }
