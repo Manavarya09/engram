@@ -29,7 +29,7 @@ export interface JournalEntry {
 
 export interface PrimitiveResult<T = unknown> {
   readonly primitive: PrimitiveName;
-  readonly ok: boolean;
+  readonly ok: true;
   readonly data: T;
   readonly truncated: boolean;
   readonly bytes: number;
