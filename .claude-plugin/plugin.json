@@ -1,0 +1,27 @@
+{
+  "name": "engram",
+  "description": "The first Recursive Language Model engine for Claude Code. The codebase is never loaded into context — Claude examines it via a logged REPL of five coding-native primitives (grep, read, ast, git, recurse). Verifiable, local-first, infinite-feeling context.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Manavarya Singh",
+    "url": "https://github.com/Manavarya09"
+  },
+  "homepage": "https://github.com/Manavarya09/engram",
+  "repository": "https://github.com/Manavarya09/engram",
+  "license": "MIT",
+  "keywords": [
+    "claude-plugin",
+    "rlm",
+    "recursive-language-model",
+    "infinite-context",
+    "agent-memory",
+    "context-engineering",
+    "session-memory",
+    "verifiable-memory",
+    "coding-agent",
+    "ast",
+    "tree-sitter",
+    "local-first"
+  ],
+  "commands": "./commands/"
+}

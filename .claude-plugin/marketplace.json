@@ -1,0 +1,24 @@
+{
+  "name": "engram",
+  "displayName": "engram — Recursive Language Model for Claude Code",
+  "shortDescription": "Infinite-feeling context for Claude Code. The codebase is never loaded — Claude examines it via a logged REPL of coding-native primitives.",
+  "longDescription": "engram brings the December 2025 Recursive Language Model paradigm (Zhang, Kraska, Khattab — MIT CSAIL) to Claude Code, specialized for code. Instead of stuffing your repository into the context window (where lost-in-the-middle costs you 25–60% retrieval at long ranges), engram exposes five coding-native primitives — grep, read, ast, git, recurse — that Claude programmatically calls. Every call is journaled to an append-only audit log: provable, replayable, local-first.",
+  "categories": ["memory", "context", "agent-tooling", "research"],
+  "tags": [
+    "rlm",
+    "recursive-language-model",
+    "infinite-context",
+    "memory",
+    "verifiable",
+    "local-first",
+    "ast",
+    "audit-log"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Manavarya Singh",
+    "url": "https://github.com/Manavarya09"
+  },
+  "repository": "https://github.com/Manavarya09/engram",
+  "homepage": "https://github.com/Manavarya09/engram"
+}
