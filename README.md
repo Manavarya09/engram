@@ -104,6 +104,47 @@ came back, and what the parent Claude did with it.
 
 ---
 
+## Demo — a real session
+
+A simulated `/engram` walkthrough on the engram repo itself, answering
+*"Where does engram enforce byte budgets, and how?"*
+
+```
+1. engram grep "maxResultBytes|budget" --max 8
+   → 8 hits across docs/, points at src/engine/runner.ts
+   → 6 ms · journalId 8e7697b8…
+
+2. engram ast src/engine/runner.ts functions
+   → run() at L31–78 (exported), enforceBudget() at L91–124
+   → 10 ms · journalId cc6deab6…
+
+3. engram read src/engine/runner.ts 91 124
+   → 34-line slice of the actual implementation
+   → 1 ms · journalId 6dc9ade0…
+```
+
+Answer composed from those three slices, citing the three journal IDs as
+provenance. Total: 3 primitive calls, 12 ms, 1810-byte journal entry.
+The codebase was never loaded into the context window; Claude examined
+it through the REPL.
+
+The same session against the much larger `designlang` repo (~40K LOC,
+120 source files) returned in 122 ms on a broad grep, 3 ms on a narrowed
+glob — all comfortably interactive.
+
+---
+
+## Nudges (PreToolUse hook)
+
+engram ships a PreToolUse hook at `hooks/pretool-hint.py`. When you run
+`/engram` and Claude reaches for native `Bash: grep`, `git log`, or a
+large file `Read`, the hook prints a single-line stderr hint suggesting
+the engram equivalent so the call lands in the journal. The hook is
+*advisory* — it never blocks the tool. Disable by removing `hooks/` from
+`.claude-plugin/plugin.json`.
+
+---
+
 ## How it differs from what you already have
 
 | | Claude Code default | Cursor index / Cody | Mem0 / Letta / Zep | **engram** |

@@ -3,11 +3,11 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|Read",
         "hooks": [
           {
             "type": "command",
-            "command": "test -z \"${ENGRAM_DISABLE_LOG:-}\" || exit 0; case \"${TOOL_INPUT_COMMAND:-}\" in *engram*) :;; *) exit 0;; esac; exit 0"
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/pretool-hint.py"
           }
         ]
       }
