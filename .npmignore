@@ -1,0 +1,8 @@
+src/
+tests/
+docs/
+.engram/
+*.tsbuildinfo
+tsconfig.json
+.gitignore
+.github/
