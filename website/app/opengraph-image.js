@@ -17,8 +17,8 @@ export default function OpenGraphImage() {
           padding: 72,
           fontFamily: "Geist, system-ui, sans-serif",
           background:
-            "radial-gradient(900px 600px at 12% -10%, rgba(44, 76, 184, 0.35), transparent 60%), radial-gradient(900px 600px at 95% 8%, rgba(90, 125, 240, 0.18), transparent 65%), #060810",
-          color: "#e8eaf6",
+            "radial-gradient(900px 600px at 12% -10%, rgba(27, 107, 72, 0.38), transparent 60%), radial-gradient(900px 600px at 95% 8%, rgba(78, 196, 145, 0.18), transparent 65%), #050b08",
+          color: "#e8f0ea",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -27,15 +27,15 @@ export default function OpenGraphImage() {
               width: 52,
               height: 52,
               borderRadius: 12,
-              background: "linear-gradient(180deg, #16306a, #0a1233)",
-              border: "1px solid rgba(90,125,240,0.55)",
+              background: "linear-gradient(180deg, #0d3220, #02160c)",
+              border: "1px solid rgba(78, 196, 145, 0.55)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontFamily: "Georgia, serif",
               fontStyle: "italic",
               fontSize: 30,
-              color: "#d6e0ff",
+              color: "#d8f5e6",
             }}
           >
             ɘ
@@ -48,18 +48,18 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 18,
               fontFamily: "ui-monospace, monospace",
-              color: "#8aa6ff",
+              color: "#a3eec9",
               textTransform: "uppercase",
               letterSpacing: "0.12em",
             }}
           >
-            recursive language model · for claude code · v0.0.1
+            recursive language model · claude code · v0.0.1
           </div>
           <div style={{ fontSize: 68, letterSpacing: "-0.03em", lineHeight: 1.03, fontWeight: 600, maxWidth: 1000 }}>
             The codebase is never loaded into context.
           </div>
-          <div style={{ fontSize: 24, color: "rgba(232,234,246,0.66)", maxWidth: 900, lineHeight: 1.4 }}>
-            Claude examines it via a logged REPL of five primitives. Verifiable, local-first, infinite-feeling.
+          <div style={{ fontSize: 24, color: "rgba(232, 240, 234, 0.64)", maxWidth: 900, lineHeight: 1.4 }}>
+            Claude examines it through five primitives. Every call appends to a sha256-hashed local journal.
           </div>
         </div>
 
@@ -70,7 +70,7 @@ export default function OpenGraphImage() {
             alignItems: "center",
             fontFamily: "ui-monospace, monospace",
             fontSize: 16,
-            color: "rgba(232,234,246,0.42)",
+            color: "rgba(232, 240, 234, 0.42)",
           }}
         >
           <div>grep · read · ast · git · recurse</div>

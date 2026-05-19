@@ -13,9 +13,7 @@ export default function Home() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-//  HERO
-// ─────────────────────────────────────────────────────────────────────
+// ─── HERO ─────────────────────────────────────────────────────────
 
 function Hero() {
   return (
@@ -23,7 +21,7 @@ function Hero() {
       <div className="wrap">
         <span className="hero-eyebrow">
           <span className="hero-eyebrow-dot" />
-          <span>v0.0.1 · the 2026 Recursive Language Model paradigm, for code</span>
+          <span>engram v0.0.1 · for Claude Code</span>
         </span>
 
         <h1 className="hero-title">
@@ -32,18 +30,18 @@ function Hero() {
         </h1>
 
         <p className="hero-sub">
-          engram is the first coding-native Recursive Language Model engine. Instead
-          of stuffing your repository into the model's window — where retrieval drops
-          25–60% past 200K tokens — engram exposes a logged REPL of five primitives
-          (<span className="mono">grep</span>, <span className="mono">read</span>,{" "}
-          <span className="mono">ast</span>, <span className="mono">git</span>,{" "}
-          <span className="mono">recurse</span>) that the model programmatically
-          calls. Every call lands in an append-only, sha256-hashed local journal.
+          A Recursive Language Model engine for coding agents. Claude calls five
+          primitives (<span className="mono">grep</span>,{" "}
+          <span className="mono">read</span>, <span className="mono">ast</span>,{" "}
+          <span className="mono">git</span>, <span className="mono">recurse</span>)
+          to examine your repo on demand. Every call lands in a local,
+          sha256-hashed journal. No bulk loading. No vector retrieval. No{" "}
+          <span className="mono">/compact</span>.
         </p>
 
         <div className="hero-actions">
           <a className="btn btn-primary btn-mono" href={`${SITE_REPO}#quickstart`} target="_blank" rel="noreferrer">
-            <span>Install engram</span>
+            <span>Install</span>
             <span className="btn-glyph">↗</span>
           </a>
           <a className="btn btn-ghost" href="/paper">
@@ -63,15 +61,15 @@ function Hero() {
           </div>
           <div>
             <div className="hero-meta-k">primitives</div>
-            <div className="hero-meta-v"><span className="mono">5</span> coding-native</div>
+            <div className="hero-meta-v"><span className="mono">5</span></div>
           </div>
           <div>
-            <div className="hero-meta-k">memory</div>
-            <div className="hero-meta-v">sha256 <span className="mono">verifiable</span></div>
+            <div className="hero-meta-k">journal</div>
+            <div className="hero-meta-v"><span className="mono">sha256</span></div>
           </div>
           <div>
-            <div className="hero-meta-k">host</div>
-            <div className="hero-meta-v"><span className="mono">local-first</span></div>
+            <div className="hero-meta-k">runs</div>
+            <div className="hero-meta-v"><span className="mono">local</span></div>
           </div>
         </div>
       </div>
@@ -79,22 +77,21 @@ function Hero() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-//  ARCHITECTURE — the RLM loop diagram
-// ─────────────────────────────────────────────────────────────────────
+// ─── ARCHITECTURE ─────────────────────────────────────────────────
 
 function Architecture() {
   return (
     <section className="section" id="how">
       <div className="wrap">
-        <span className="eyebrow">the loop</span>
+        <span className="eyebrow">how it works</span>
         <h2 className="h2">
-          Long context belongs in the <em>environment</em>, not in the model.
+          Long context belongs in the environment, not the model.
         </h2>
         <p className="lede">
-          Every turn, the parent Claude sees the prompt plus a thin tool catalog —
-          never the repo. It traverses programmatically. The journal records every
-          step. Compaction becomes a non-event, because nothing was loaded to compact.
+          Every turn, Claude sees the prompt plus a thin tool catalog. Not the
+          repo. It traverses with the primitives. The journal records each step.
+          {" "}<span className="mono">/compact</span> becomes a non-event because
+          nothing was loaded in the first place.
         </p>
 
         <div className="diagram">
@@ -104,7 +101,7 @@ function Architecture() {
             </Row>
             <Arrow />
             <Row label="02 · parent">
-              <Node mark="claude" text="Reading thin context: prompt + 5-primitive tool catalog" sub="≈ 1.8K tokens" />
+              <Node mark="claude" text="Reads prompt + 5-primitive tool catalog" sub="≈ 1.8K tokens" />
             </Row>
             <Arrow />
             <Row label="03 · REPL">
@@ -164,39 +161,37 @@ function Arrow() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-//  PRIMITIVES
-// ─────────────────────────────────────────────────────────────────────
+// ─── PRIMITIVES ────────────────────────────────────────────────────
 
 const PRIMITIVES = [
   {
     name: "grep",
     tag: "search",
-    desc: "Bounded regex search across the repo with file:line:col and N-line context. Skips node_modules, .git, dist, build. Caps at 50 hits — narrow on truncation.",
+    desc: "Bounded regex search across the repo with file:line:col and N-line context. Skips node_modules, .git, dist, build. Caps at 50 hits. If you hit the cap, narrow the query.",
     bound: "50 hits · 2-line ctx · 2 MB/file",
   },
   {
     name: "read",
     tag: "slice",
-    desc: "A bounded line range from a file. 1-indexed, inclusive. Hard-capped at 400 lines per call. There is no flag to fetch the whole file. That's the discipline.",
+    desc: "A bounded line range from a file. 1-indexed, inclusive. Hard cap of 400 lines per call. No flag fetches the whole file. That's the discipline.",
     bound: "≤ 400 lines / call",
   },
   {
     name: "ast",
     tag: "structure",
-    desc: "Structural queries via the TypeScript compiler API: functions, classes, exports, imports, or the tightest node containing line:col. Works on .ts, .tsx, .mts, .cts, .js, .jsx, .mjs, .cjs.",
+    desc: "Structural queries via the TypeScript compiler API. Functions, classes, exports, imports, or the tightest node containing line:col. Works on .ts, .tsx, .mts, .cts, .js, .jsx, .mjs, .cjs.",
     bound: "≤ 200 symbols / call",
   },
   {
     name: "git",
     tag: "history",
-    desc: "Bounded git views — log, blame, diff — via spawn with a fixed argv (no shell, no injection vector). Path-escape rejected even though the shell can't reach us.",
+    desc: "Bounded git views: log, blame, diff. Runs via spawn with a fixed argv. No shell, no injection. Path escapes from cwd are refused even though they couldn't reach the shell anyway.",
     bound: "30 commits · 400 blame · 32 KB diff",
   },
   {
     name: "recurse",
     tag: "delegate",
-    desc: "Emit a structured ENGRAM-RECURSE-REQUEST. The parent dispatches via Claude's Task subagent. The child returns a 1–3 sentence conclusion — never a transcript — so the parent's context stays clean.",
+    desc: "Emits a structured ENGRAM-RECURSE-REQUEST. The parent dispatches via Claude's Task subagent. The child returns a 1–3 sentence conclusion, not a transcript, so the parent's context stays clean.",
     bound: "depth ≤ 4 · 16 snippets · 24 KB",
   },
 ];
@@ -207,12 +202,13 @@ function Primitives() {
       <div className="wrap">
         <span className="eyebrow">the five primitives</span>
         <h2 className="h2">
-          Mechanical tools. <em>The parent owns the plan.</em>
+          Mechanical tools. The parent owns the plan.
         </h2>
         <p className="lede">
-          engram never decides what to look at — the model does. Every primitive
-          returns a small, structured slice. Every output signals truncation
-          explicitly. Every call is logged before the parent ever sees it.
+          engram never decides what to look at. Claude does. Each primitive
+          returns a small, structured slice. Outputs signal truncation so Claude
+          knows when to narrow. Every call is logged before the parent sees the
+          response.
         </p>
 
         <div className="prims">
@@ -233,9 +229,8 @@ function Primitives() {
             </div>
             <p className="prim-desc">
               Every primitive funnels through a single byte-budgeted runner. No
-              path skips the audit chain. Truncation becomes a signal — never
-              silent loss. Errors are journaled too, so silent failure is
-              impossible.
+              path skips the audit chain. Errors are journaled too, so silent
+              failure is impossible.
             </p>
             <span className="prim-bound">single choke point · src/engine/runner.ts</span>
           </article>
@@ -245,9 +240,7 @@ function Primitives() {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-//  JOURNAL
-// ─────────────────────────────────────────────────────────────────────
+// ─── JOURNAL ───────────────────────────────────────────────────────
 
 function Journal() {
   return (
@@ -255,28 +248,27 @@ function Journal() {
       <div className="wrap">
         <span className="eyebrow">verifiable memory</span>
         <h2 className="h2">
-          Memory you can <em>prove</em>.
+          Memory you can prove.
         </h2>
         <p className="lede">
-          Every primitive call appends a single JSONL line to{" "}
-          <span className="mono">.engram/journal.jsonl</span>: timestamp, primitive,
-          args, sha256 hash over key-sorted JSON, bounded preview, duration, session
-          id. Append-only. Local-only. Replayable. The first agent-memory layer that
-          can answer "what did the agent know at 02:14?" with a cryptographic
-          receipt.
+          Every call appends a JSONL line to{" "}
+          <span className="mono">.engram/journal.jsonl</span> with timestamp,
+          primitive, args, sha256 hash, preview, and duration. Append-only.
+          Local. Replayable. You can answer "what did Claude see at 02:14?"
+          with a cryptographic receipt.
         </p>
 
         <div className="journal">
-          <Entry ts="07:50:24.987" prim="engram.ast"   args='{"file":"src/auth/index.ts","query":{"kind":"functions"}}' hash="3a7b8c…" />
-          <Entry ts="07:50:25.012" prim="engram.grep"  args='{"pattern":"login","glob":"src/**/*.ts"}'                  hash="38d807…" />
-          <Entry ts="07:50:25.044" prim="engram.read"  args='{"file":"src/auth/index.ts","fromLine":40,"toLine":78}'    hash="c9e1f0…" />
-          <Entry ts="07:50:25.063" prim="engram.git"   args='{"mode":"blame","file":"src/auth/index.ts"}'                hash="71b3d2…" />
-          <Entry ts="07:50:25.118" prim="engram.recurse" args='{"prompt":"summarize refresh path","snippets":1}'         hash="9adf4e…" />
+          <Entry ts="07:50:24.987" prim="engram.ast"     args='{"file":"src/auth/index.ts","query":{"kind":"functions"}}' hash="3a7b8c…" />
+          <Entry ts="07:50:25.012" prim="engram.grep"    args='{"pattern":"login","glob":"src/**/*.ts"}'                  hash="38d807…" />
+          <Entry ts="07:50:25.044" prim="engram.read"    args='{"file":"src/auth/index.ts","fromLine":40,"toLine":78}'    hash="c9e1f0…" />
+          <Entry ts="07:50:25.063" prim="engram.git"     args='{"mode":"blame","file":"src/auth/index.ts"}'                hash="71b3d2…" />
+          <Entry ts="07:50:25.118" prim="engram.recurse" args='{"prompt":"summarize refresh path","snippets":1}'           hash="9adf4e…" />
         </div>
 
         <div style={{ marginTop: 18, color: "var(--fg-3)", fontSize: 13.5 }}>
-          <span className="mono">cat .engram/journal.jsonl | jq</span> — the audit chain
-          is just a file. No daemon. No cloud. No vendor.
+          <span className="mono">cat .engram/journal.jsonl | jq</span>. It's a
+          file. No daemon, no cloud, no vendor.
         </div>
       </div>
     </section>
@@ -294,9 +286,7 @@ function Entry({ ts, prim, args, hash }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-//  COMPARE
-// ─────────────────────────────────────────────────────────────────────
+// ─── COMPARE ──────────────────────────────────────────────────────
 
 const ROWS = [
   ["Codebase loaded into context?", "yes (until /compact)", "embedded RAG", "n/a (chat memory)", "no — environment only"],
@@ -313,13 +303,13 @@ function Compare() {
       <div className="wrap">
         <span className="eyebrow">vs.</span>
         <h2 className="h2">
-          The five tiers nobody owns — <em>and the one engram does.</em>
+          Where engram fits.
         </h2>
         <p className="lede">
           Of the eight memory tiers a coding agent actually uses, five are
-          unowned in the current ecosystem. engram aims at all of them; v0.0.1
-          ships the journal tier (L2) and the code-as-environment tier (L4),
-          with the rest on the roadmap.
+          unowned in the current ecosystem. v0.0.1 ships two of them: the
+          journal (L2) and the code-as-environment view (L4). The rest are
+          on the roadmap.
         </p>
 
         <div className="matrix">
@@ -349,9 +339,7 @@ function RowMatrix({ h, a, b, c, d }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-//  INSTALL
-// ─────────────────────────────────────────────────────────────────────
+// ─── INSTALL ──────────────────────────────────────────────────────
 
 function Install() {
   return (
@@ -359,13 +347,14 @@ function Install() {
       <div className="wrap">
         <span className="eyebrow">install</span>
         <h2 className="h2">
-          <em>Two paths.</em> Same primitives.
+          Plugin or CLI.
         </h2>
         <p className="lede">
-          Run engram as a Claude Code plugin (the slash command) or as a
-          standalone CLI in any terminal. The journal lives next to your
-          repo at <span className="mono">.engram/journal.jsonl</span> in either
-          case.
+          Run engram inside Claude Code via the{" "}
+          <span className="mono">/engram</span> slash command, or as a
+          standalone CLI in any terminal. The journal lives at{" "}
+          <span className="mono">.engram/journal.jsonl</span> next to your
+          repo either way.
         </p>
 
         <div className="install">
@@ -376,10 +365,11 @@ function Install() {
               <span className="install-cmd-copy">copy</span>
             </div>
             <p className="install-card-sub">
-              Then run <span className="mono" style={{ color: "var(--ink-4)" }}>/engram &lt;question&gt;</span> in
-              Claude Code. The slash command instructs the model to traverse via
-              primitives, narrow on truncation, and close with a provenance trail
-              of journal IDs.
+              Then run{" "}
+              <span className="mono" style={{ color: "var(--grn-4)" }}>/engram &lt;question&gt;</span>{" "}
+              in Claude Code. The slash command tells the model to traverse via
+              primitives, narrow on truncation, and close with a provenance
+              trail of journal IDs.
             </p>
           </div>
 
@@ -390,9 +380,9 @@ function Install() {
               <span className="install-cmd-copy">copy</span>
             </div>
             <p className="install-card-sub">
-              Requires Node ≥ 22.6 (engram ships <span className="mono">.ts</span>{" "}
-              directly — no build step). Try{" "}
-              <span className="mono" style={{ color: "var(--ink-4)" }}>engram ast src/index.ts functions</span>{" "}
+              Needs Node 22.6+. engram ships{" "}
+              <span className="mono">.ts</span> directly, no build step. Try{" "}
+              <span className="mono" style={{ color: "var(--grn-4)" }}>engram ast src/index.ts functions</span>{" "}
               to see the journal grow.
             </p>
           </div>
@@ -400,7 +390,7 @@ function Install() {
 
         <div style={{ marginTop: 40, padding: "20px 24px", border: "1px solid var(--hairline)", borderRadius: 18, background: "var(--panel)", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
           <div>
-            <div style={{ fontFamily: "var(--ff-mono)", fontSize: 11, color: "var(--ink-4)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>research positioning</div>
+            <div style={{ fontFamily: "var(--ff-mono)", fontSize: 11, color: "var(--grn-4)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>research positioning</div>
             <div style={{ fontSize: 15 }}>The full paper: motivation, design contracts, evaluation methodology, threat model, 8-tier hierarchy.</div>
           </div>
           <a className="btn btn-primary btn-sm" href="/paper">

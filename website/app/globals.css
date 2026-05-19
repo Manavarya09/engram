@@ -1,41 +1,38 @@
-/* ------------------------------------------------------------------ */
-/* engram — ink blue, dark, scientific. The site of a research paper   */
-/* you'd actually want to read.                                        */
-/* ------------------------------------------------------------------ */
+/* engram — dark, green, restrained. */
 
 :root {
   /* surface */
-  --bg:           #060810;
-  --bg-2:         #0a0e1a;
-  --bg-3:         #10162a;
+  --bg:           #050b08;
+  --bg-2:         #08120d;
+  --bg-3:         #0d1a14;
   --panel:        rgba(255, 255, 255, 0.025);
   --panel-2:      rgba(255, 255, 255, 0.04);
   --hairline:     rgba(255, 255, 255, 0.08);
   --hairline-2:   rgba(255, 255, 255, 0.14);
 
-  /* ink */
-  --fg:           rgba(232, 234, 246, 0.96);
-  --fg-2:         rgba(232, 234, 246, 0.66);
-  --fg-3:         rgba(232, 234, 246, 0.42);
-  --fg-4:         rgba(232, 234, 246, 0.24);
+  /* text */
+  --fg:           rgba(232, 240, 234, 0.96);
+  --fg-2:         rgba(232, 240, 234, 0.64);
+  --fg-3:         rgba(232, 240, 234, 0.42);
+  --fg-4:         rgba(232, 240, 234, 0.24);
 
-  /* ink blue — the only chromatic note in the palette */
-  --ink-0:        #0a1233;
-  --ink-1:        #16306a;
-  --ink-2:        #2c4cb8;     /* primary accent — replaces the old red-2 */
-  --ink-3:        #5a7df0;
-  --ink-4:        #8aa6ff;
-  --ink-soft:     rgba(44, 76, 184, 0.18);
-  --ink-glow:     rgba(90, 125, 240, 0.42);
-  --ink-line:     rgba(90, 125, 240, 0.55);
+  /* pen-ink green — the only chromatic note in the palette */
+  --grn-0:        #02160c;
+  --grn-1:        #0d3220;
+  --grn-2:        #1b6b48;
+  --grn-3:        #4ec491;
+  --grn-4:        #a3eec9;
+  --grn-soft:     rgba(27, 107, 72, 0.18);
+  --grn-glow:     rgba(78, 196, 145, 0.40);
+  --grn-line:     rgba(78, 196, 145, 0.55);
 
   --grad-cta:
     linear-gradient(125deg,
-      #0a1233 0%,
-      #1f3c8c 30%,
-      #3b5dd9 50%,
-      #1f3c8c 70%,
-      #0a1233 100%
+      #02160c 0%,
+      #0f4a30 30%,
+      #1d8a5c 50%,
+      #0f4a30 70%,
+      #02160c 100%
     );
 
   /* type */
@@ -74,16 +71,16 @@ a:hover { color: #fff; }
 button { font: inherit; cursor: pointer; background: none; border: 0; color: inherit; padding: 0; }
 img, svg { display: block; max-width: 100%; }
 
-::selection { background: var(--ink-2); color: #fff; }
+::selection { background: var(--grn-2); color: #fff; }
 
-/* ── Page background — ink wash + faint hairline grid ────────────── */
+/* ── Page background — green wash + faint hairline grid ──────────── */
 
 .bg-canvas {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(1100px 700px at 12% -10%, rgba(44, 76, 184, 0.18), transparent 60%),
-    radial-gradient(900px 600px at 92% 10%, rgba(90, 125, 240, 0.10), transparent 65%),
-    radial-gradient(1200px 800px at 50% 110%, rgba(22, 48, 106, 0.22), transparent 70%),
+    radial-gradient(1100px 700px at 12% -10%, rgba(27, 107, 72, 0.20), transparent 60%),
+    radial-gradient(900px 600px at 92% 10%, rgba(78, 196, 145, 0.10), transparent 65%),
+    radial-gradient(1200px 800px at 50% 110%, rgba(13, 50, 32, 0.24), transparent 70%),
     var(--bg);
 }
 .bg-grid {
@@ -129,7 +126,7 @@ img, svg { display: block; max-width: 100%; }
   height: var(--nav-h);
   display: flex; align-items: center; gap: 14px;
   padding: 0 14px 0 18px;
-  background: linear-gradient(180deg, rgba(16, 22, 42, 0.78), rgba(10, 14, 26, 0.70));
+  background: linear-gradient(180deg, rgba(13, 26, 20, 0.78), rgba(8, 18, 13, 0.70));
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid var(--hairline);
@@ -145,12 +142,12 @@ img, svg { display: block; max-width: 100%; }
 .nav-mark {
   width: 26px; height: 26px;
   display: grid; place-items: center;
-  background: linear-gradient(180deg, var(--ink-1), var(--ink-0));
-  border: 1px solid var(--ink-line);
+  background: linear-gradient(180deg, var(--grn-1), var(--grn-0));
+  border: 1px solid var(--grn-line);
   border-radius: 8px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 8px 20px -10px var(--ink-glow);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 8px 20px -10px var(--grn-glow);
   font-family: var(--ff-serif);
-  font-size: 15px; font-style: italic; color: #d6e0ff;
+  font-size: 15px; font-style: italic; color: #d8f5e6;
   line-height: 1;
 }
 .nav-wordmark { font-feature-settings: "ss01" 1; }
@@ -170,15 +167,15 @@ img, svg { display: block; max-width: 100%; }
   padding: 8px 14px;
   background: var(--grad-cta);
   background-size: 200% 100%;
-  border: 1px solid var(--ink-line);
+  border: 1px solid var(--grn-line);
   border-radius: 999px;
   font-size: 13.5px; font-weight: 500; color: #fff;
-  box-shadow: 0 8px 24px -8px var(--ink-glow), inset 0 1px 0 rgba(255,255,255,0.18);
+  box-shadow: 0 8px 24px -8px var(--grn-glow), inset 0 1px 0 rgba(255,255,255,0.18);
   transition: background-position .25s ease, box-shadow .25s ease;
 }
 .nav-cta:hover {
   background-position: 100% 50%;
-  box-shadow: 0 12px 32px -8px var(--ink-glow), inset 0 1px 0 rgba(255,255,255,0.22);
+  box-shadow: 0 12px 32px -8px var(--grn-glow), inset 0 1px 0 rgba(255,255,255,0.22);
   color: #fff;
 }
 .nav-cta-glyph { font-family: var(--ff-mono); opacity: 0.75; }
@@ -209,9 +206,9 @@ img, svg { display: block; max-width: 100%; }
 .btn-primary {
   background: var(--grad-cta);
   background-size: 200% 100%;
-  border-color: var(--ink-line);
+  border-color: var(--grn-line);
   color: #fff;
-  box-shadow: 0 12px 28px -10px var(--ink-glow), inset 0 1px 0 rgba(255,255,255,0.18);
+  box-shadow: 0 12px 28px -10px var(--grn-glow), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 .btn-primary:hover { background-position: 100% 50%; }
 
@@ -234,16 +231,16 @@ img, svg { display: block; max-width: 100%; }
   display: inline-flex; align-items: center; gap: 10px;
   padding: 6px 14px;
   font-family: var(--ff-mono); font-size: 11.5px;
-  color: var(--ink-4);
-  background: var(--ink-soft);
-  border: 1px solid var(--ink-line);
+  color: var(--grn-4);
+  background: var(--grn-soft);
+  border: 1px solid var(--grn-line);
   border-radius: 999px;
   margin-bottom: 32px;
 }
 .hero-eyebrow-dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--ink-4);
-  box-shadow: 0 0 12px var(--ink-glow);
+  background: var(--grn-4);
+  box-shadow: 0 0 12px var(--grn-glow);
 }
 
 .hero-title {
@@ -258,7 +255,7 @@ img, svg { display: block; max-width: 100%; }
   font-style: normal;
   font-family: var(--ff-serif);
   font-weight: 500;
-  color: var(--ink-4);
+  color: var(--grn-4);
 }
 
 .hero-sub {
@@ -285,7 +282,7 @@ img, svg { display: block; max-width: 100%; }
 .hero-meta > div:last-child { border-right: 0; padding-right: 0; }
 .hero-meta-k { font-family: var(--ff-mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
 .hero-meta-v { font-size: 18px; letter-spacing: -0.015em; }
-.hero-meta-v .mono { color: var(--ink-4); }
+.hero-meta-v .mono { color: var(--grn-4); }
 
 @media (max-width: 760px) {
   .hero-meta { grid-template-columns: repeat(2, 1fr); }
@@ -298,12 +295,12 @@ img, svg { display: block; max-width: 100%; }
 
 .eyebrow {
   font-family: var(--ff-mono); font-size: 11px;
-  color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--grn-4); text-transform: uppercase; letter-spacing: 0.1em;
   margin-bottom: 18px;
   display: inline-flex; gap: 10px; align-items: center;
 }
 .eyebrow::before {
-  content: ""; width: 22px; height: 1px; background: var(--ink-line);
+  content: ""; width: 22px; height: 1px; background: var(--grn-line);
 }
 .h2 {
   margin: 0 0 16px;
@@ -314,7 +311,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .h2 em {
   font-style: italic; font-family: var(--ff-serif); font-weight: 500;
-  color: var(--ink-4);
+  color: var(--grn-4);
 }
 .lede {
   font-size: 17px; color: var(--fg-2);
@@ -334,7 +331,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .diagram::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(600px 280px at 50% -10%, var(--ink-soft), transparent 60%);
+  background: radial-gradient(600px 280px at 50% -10%, var(--grn-soft), transparent 60%);
   pointer-events: none;
 }
 .diagram-grid {
@@ -361,9 +358,9 @@ img, svg { display: block; max-width: 100%; }
 }
 .diagram-node-mark {
   font-family: var(--ff-mono); font-size: 11px;
-  color: var(--ink-4);
-  background: var(--ink-soft);
-  border: 1px solid var(--ink-line);
+  color: var(--grn-4);
+  background: var(--grn-soft);
+  border: 1px solid var(--grn-line);
   border-radius: 6px;
   padding: 4px 8px;
 }
@@ -371,7 +368,7 @@ img, svg { display: block; max-width: 100%; }
 .diagram-node-sub  { color: var(--fg-3); margin-left: auto; font-family: var(--ff-mono); font-size: 12px; }
 .diagram-arrow {
   display: flex; align-items: center; justify-content: center;
-  height: 22px; color: var(--ink-3);
+  height: 22px; color: var(--grn-3);
 }
 
 @media (max-width: 740px) {
@@ -395,7 +392,7 @@ img, svg { display: block; max-width: 100%; }
   transition: border-color .25s ease, background .25s ease;
 }
 .prim:hover {
-  border-color: var(--ink-line);
+  border-color: var(--grn-line);
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
 }
 .prim-head {
@@ -404,7 +401,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .prim-name {
   font-family: var(--ff-mono); font-size: 18px;
-  color: var(--ink-4); letter-spacing: -0.01em;
+  color: var(--grn-4); letter-spacing: -0.01em;
 }
 .prim-tag {
   font-family: var(--ff-mono); font-size: 10.5px;
@@ -428,7 +425,7 @@ img, svg { display: block; max-width: 100%; }
 
 .code {
   margin: 24px 0;
-  background: linear-gradient(180deg, #060a1a, #04060f);
+  background: linear-gradient(180deg, #050d09, #03070a);
   border: 1px solid var(--hairline);
   border-radius: var(--r-lg);
   overflow: hidden;
@@ -449,10 +446,10 @@ img, svg { display: block; max-width: 100%; }
   background: var(--hairline-2);
 }
 .code pre { margin: 0; padding: 18px 20px; overflow-x: auto; }
-.code .ln-prompt { color: var(--ink-4); }
+.code .ln-prompt { color: var(--grn-4); }
 .code .ln-comment { color: var(--fg-3); }
-.code .ln-key { color: #c2d2ff; }
-.code .ln-str { color: #94b0ff; }
+.code .ln-key { color: #b6dec6; }
+.code .ln-str { color: #8ddab2; }
 
 /* ── Comparison matrix ───────────────────────────────────────────── */
 
@@ -474,25 +471,23 @@ img, svg { display: block; max-width: 100%; }
 .matrix > div.matrix-h {
   background: rgba(255,255,255,0.02);
   font-family: var(--ff-mono); font-size: 11.5px;
-  color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--grn-4); text-transform: uppercase; letter-spacing: 0.08em;
 }
 .matrix > div.matrix-row-h {
   font-weight: 500;
   color: var(--fg);
 }
-.matrix-yes { color: var(--ink-4); }
+.matrix-yes { color: var(--grn-4); }
 .matrix-no  { color: var(--fg-3); }
 .matrix-engram {
-  background: rgba(44, 76, 184, 0.08);
-  color: #d6e0ff;
+  background: rgba(27, 107, 72, 0.10);
+  color: #d8f5e6;
 }
 .matrix > div:nth-last-child(-n+5) { border-bottom: 0; }
 
 @media (max-width: 900px) {
-  /* 5 cells per row, hide 2 (Cursor + Mem0), shows 3 cells in a 3-col grid:
-     label · CC default · engram. nth-child still counts hidden cells, so the
-     base rule `.matrix > div:nth-child(5n) { border-right: 0; }` keeps the
-     engram column (cell 5/10/15…) borderless on the right. */
+  /* 5 cells per row, 2 hidden, leaves 3 cells in a 3-column grid:
+     label · CC default · engram. */
   .matrix { grid-template-columns: 1.3fr 1fr 1fr; }
   .matrix-mobile-hide { display: none; }
 }
@@ -502,7 +497,7 @@ img, svg { display: block; max-width: 100%; }
 .journal {
   margin-top: 28px;
   padding: 22px;
-  background: linear-gradient(180deg, #060a1a, #04060f);
+  background: linear-gradient(180deg, #050d09, #03070a);
   border: 1px solid var(--hairline);
   border-radius: var(--r-xl);
   font-family: var(--ff-mono); font-size: 12.5px;
@@ -519,7 +514,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .journal-entry:last-child { border-bottom: 0; }
 .journal-ts { color: var(--fg-3); }
-.journal-prim { color: var(--ink-4); }
+.journal-prim { color: var(--grn-4); }
 .journal-hash { color: var(--fg-3); text-align: right; }
 .journal-args { color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
@@ -544,27 +539,27 @@ img, svg { display: block; max-width: 100%; }
 }
 .install-card-h {
   font-family: var(--ff-mono); font-size: 11.5px;
-  color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--grn-4); text-transform: uppercase; letter-spacing: 0.1em;
   margin-bottom: 16px;
 }
 .install-cmd {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 16px;
-  background: #04060f;
+  background: #03070a;
   border: 1px solid var(--hairline);
   border-radius: var(--r);
   font-family: var(--ff-mono); font-size: 13.5px;
   margin-bottom: 14px;
   color: var(--fg);
 }
-.install-cmd .install-cmd-prompt { color: var(--ink-4); margin-right: 12px; }
+.install-cmd .install-cmd-prompt { color: var(--grn-4); margin-right: 12px; }
 .install-cmd-copy {
   font-family: var(--ff-mono); font-size: 11px;
   color: var(--fg-3); padding: 4px 10px;
   border: 1px solid var(--hairline);
   border-radius: 6px;
 }
-.install-cmd-copy:hover { color: var(--fg); border-color: var(--ink-line); }
+.install-cmd-copy:hover { color: var(--fg); border-color: var(--grn-line); }
 .install-card-sub {
   font-size: 13.5px; color: var(--fg-2);
   margin: 0;
@@ -581,7 +576,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .ftr::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(700px 360px at 50% 100%, var(--ink-soft), transparent 70%);
+  background: radial-gradient(700px 360px at 50% 100%, var(--grn-soft), transparent 70%);
   pointer-events: none;
 }
 .ftr-grid {
@@ -595,7 +590,7 @@ img, svg { display: block; max-width: 100%; }
 .ftr-col { display: flex; flex-direction: column; gap: 8px; }
 .ftr-title {
   font-family: var(--ff-mono); font-size: 10.5px;
-  color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--grn-4); text-transform: uppercase; letter-spacing: 0.12em;
   margin-bottom: 8px;
 }
 .ftr-col a { font-size: 13.5px; color: var(--fg-2); }
@@ -629,18 +624,18 @@ img, svg { display: block; max-width: 100%; }
 }
 .prose h1 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.025em; font-weight: 500; margin: 0 0 8px; }
 .prose h2 { font-size: clamp(20px, 2.6vw, 26px); letter-spacing: -0.015em; font-weight: 500; margin: 48px 0 12px; padding-top: 24px; border-top: 1px solid var(--hairline); }
-.prose h3 { font-size: 18px; letter-spacing: -0.01em; font-weight: 500; margin: 32px 0 10px; color: var(--ink-4); }
+.prose h3 { font-size: 18px; letter-spacing: -0.01em; font-weight: 500; margin: 32px 0 10px; color: var(--grn-4); }
 .prose p  { color: var(--fg); margin: 0 0 18px; }
-.prose a  { color: var(--ink-4); border-bottom: 1px solid var(--ink-line); }
-.prose a:hover { color: #d6e0ff; }
+.prose a  { color: var(--grn-4); border-bottom: 1px solid var(--grn-line); }
+.prose a:hover { color: #d8f5e6; }
 .prose code {
   font-family: var(--ff-mono); font-size: 13.5px;
   background: var(--panel-2); border: 1px solid var(--hairline);
   padding: 1px 6px; border-radius: 4px;
-  color: #c2d2ff;
+  color: #b6dec6;
 }
 .prose pre {
-  background: #04060f; border: 1px solid var(--hairline);
+  background: #03070a; border: 1px solid var(--hairline);
   border-radius: var(--r); padding: 16px 20px; overflow-x: auto;
   font-size: 13px; line-height: 1.65;
   color: var(--fg-2);
@@ -648,8 +643,8 @@ img, svg { display: block; max-width: 100%; }
 .prose pre code { background: transparent; border: 0; padding: 0; color: inherit; }
 .prose blockquote {
   margin: 24px 0; padding: 14px 22px;
-  border-left: 3px solid var(--ink-2);
-  background: var(--ink-soft);
+  border-left: 3px solid var(--grn-2);
+  background: var(--grn-soft);
   color: var(--fg);
   border-radius: 0 var(--r-sm) var(--r-sm) 0;
 }
@@ -667,10 +662,10 @@ img, svg { display: block; max-width: 100%; }
   border: 1px solid var(--hairline);
   background: var(--panel);
 }
-.pill-blue {
-  color: var(--ink-4);
-  border-color: var(--ink-line);
-  background: var(--ink-soft);
+.pill-green {
+  color: var(--grn-4);
+  border-color: var(--grn-line);
+  background: var(--grn-soft);
 }
 
 .kbd {

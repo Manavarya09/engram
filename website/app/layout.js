@@ -69,7 +69,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#060810",
+  themeColor: "#050b08",
   width: "device-width",
   initialScale: 1,
   colorScheme: "dark",
@@ -136,8 +136,8 @@ function Footer() {
             <span style={{ fontSize: 17 }}>engram</span>
           </a>
           <p className="ftr-tag">
-            A Recursive Language Model engine for Claude Code. The codebase is never
-            loaded into context — Claude examines it through a logged REPL.
+            A Recursive Language Model engine for Claude Code. The codebase
+            isn't loaded into context. Claude examines it through a logged REPL.
           </p>
           <div style={{ display: "flex", gap: 8 }}>
             <a className="btn btn-primary btn-sm" href={SITE_REPO} target="_blank" rel="noreferrer">
@@ -177,7 +177,7 @@ function Footer() {
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
             <span className="mono">v0.0.1</span>
             <span>·</span>
-            <span className="mono" style={{ color: "var(--ink-4)" }}>local-first</span>
+            <span className="mono" style={{ color: "var(--grn-4)" }}>local-first</span>
             <span>·</span>
             <span>built by <a href={SITE_AUTHOR.url} target="_blank" rel="noreferrer">Manavarya Singh</a></span>
           </div>
