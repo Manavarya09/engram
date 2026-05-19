@@ -10,8 +10,8 @@
 import { randomUUID } from "node:crypto";
 import { resolve } from "node:path";
 
-import type { EngramConfig } from "../types.js";
-import { DEFAULT_CONFIG } from "../types.js";
+import type { EngramConfig } from "../types.ts";
+import { DEFAULT_CONFIG } from "../types.ts";
 
 export function resolveConfig(overrides: Partial<EngramConfig> = {}): EngramConfig {
   const cwd = overrides.cwd ?? process.cwd();

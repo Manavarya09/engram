@@ -4,11 +4,11 @@
   "description": "The first Recursive Language Model engine for Claude Code. The codebase is never loaded into context — Claude examines it via a logged REPL of coding-native primitives. Verifiable, local-first, infinite-feeling context.",
   "type": "module",
   "bin": {
-    "engram": "./dist/cli.js"
+    "engram": "./src/cli.ts"
   },
-  "main": "./dist/index.js",
+  "main": "./src/index.ts",
   "files": [
-    "dist",
+    "src",
     "commands",
     "hooks",
     ".claude-plugin",
@@ -16,15 +16,12 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsc",
     "test": "node --test --experimental-strip-types tests/*.test.ts",
-    "test:built": "npm run build && node --test dist/tests/*.test.js",
     "typecheck": "tsc --noEmit",
-    "engram": "node --experimental-strip-types src/cli.ts",
-    "prepublishOnly": "npm run build && npm test"
+    "engram": "node --experimental-strip-types src/cli.ts"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.6.0"
   },
   "keywords": [
     "claude-code",
@@ -54,6 +51,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.7.0"
   }
 }

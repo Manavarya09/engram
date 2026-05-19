@@ -20,7 +20,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { appendFileSync, mkdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { dirname } from "node:path";
 
-import type { JournalEntry, PrimitiveName } from "../types.js";
+import type { JournalEntry, PrimitiveName } from "../types.ts";
 
 export interface JournalAppendInput {
   readonly primitive: PrimitiveName;
