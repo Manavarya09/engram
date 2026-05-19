@@ -1,0 +1,59 @@
+{
+  "name": "engram",
+  "version": "0.0.1",
+  "description": "The first Recursive Language Model engine for Claude Code. The codebase is never loaded into context — Claude examines it via a logged REPL of coding-native primitives. Verifiable, local-first, infinite-feeling context.",
+  "type": "module",
+  "bin": {
+    "engram": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "commands",
+    "hooks",
+    ".claude-plugin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test --experimental-strip-types tests/*.test.ts",
+    "test:built": "npm run build && node --test dist/tests/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "engram": "node --experimental-strip-types src/cli.ts",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "keywords": [
+    "claude-code",
+    "claude-plugin",
+    "rlm",
+    "recursive-language-model",
+    "memory",
+    "context",
+    "infinite-context",
+    "agent-memory",
+    "coding-agent",
+    "ast",
+    "typescript"
+  ],
+  "author": {
+    "name": "Manavarya Singh",
+    "url": "https://github.com/Manavarya09"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/Manavarya09/engram",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manavarya09/engram.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Manavarya09/engram/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.0"
+  }
+}
