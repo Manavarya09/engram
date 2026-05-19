@@ -14,52 +14,57 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: 72,
-          fontFamily: "Geist, system-ui, sans-serif",
-          background:
-            "radial-gradient(900px 600px at 12% -10%, rgba(27, 107, 72, 0.38), transparent 60%), radial-gradient(900px 600px at 95% 8%, rgba(78, 196, 145, 0.18), transparent 65%), #050b08",
-          color: "#e8f0ea",
+          padding: "72px 80px",
+          fontFamily: "Georgia, 'Source Serif', serif",
+          background: "#070707",
+          color: "rgba(245, 245, 246, 0.96)",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div
             style={{
-              width: 52,
-              height: 52,
-              borderRadius: 12,
-              background: "linear-gradient(180deg, #0d3220, #02160c)",
-              border: "1px solid rgba(78, 196, 145, 0.55)",
+              width: 44,
+              height: 44,
+              borderRadius: 9,
+              background: "#000",
+              border: "1px solid rgba(255, 255, 255, 0.32)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontFamily: "Georgia, serif",
               fontStyle: "italic",
-              fontSize: 30,
-              color: "#d8f5e6",
+              fontSize: 26,
+              color: "#fff",
             }}
           >
             ɘ
           </div>
-          <div style={{ fontSize: 30, letterSpacing: "-0.01em", fontWeight: 600 }}>engram</div>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              fontSize: 18,
-              fontFamily: "ui-monospace, monospace",
-              color: "#a3eec9",
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
+              fontSize: 24,
+              fontWeight: 500,
+              fontFamily: "system-ui, sans-serif",
+              color: "rgba(245, 245, 246, 0.96)",
             }}
           >
-            recursive language model · claude code · v0.0.1
+            engram
           </div>
-          <div style={{ fontSize: 68, letterSpacing: "-0.03em", lineHeight: 1.03, fontWeight: 600, maxWidth: 1000 }}>
-            The codebase is never loaded into context.
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 22, maxWidth: 980 }}>
+          <div style={{ fontSize: 72, letterSpacing: "-0.025em", lineHeight: 1.05, fontWeight: 600 }}>
+            A Recursive Language Model engine for Claude Code.
           </div>
-          <div style={{ fontSize: 24, color: "rgba(232, 240, 234, 0.64)", maxWidth: 900, lineHeight: 1.4 }}>
-            Claude examines it through five primitives. Every call appends to a sha256-hashed local journal.
+          <div
+            style={{
+              fontSize: 26,
+              fontStyle: "italic",
+              color: "rgba(245, 245, 246, 0.66)",
+              lineHeight: 1.4,
+              maxWidth: 900,
+            }}
+          >
+            The codebase isn&apos;t loaded into context. Claude examines it through five logged primitives.
           </div>
         </div>
 
@@ -69,8 +74,8 @@ export default function OpenGraphImage() {
             justifyContent: "space-between",
             alignItems: "center",
             fontFamily: "ui-monospace, monospace",
-            fontSize: 16,
-            color: "rgba(232, 240, 234, 0.42)",
+            fontSize: 15,
+            color: "rgba(245, 245, 246, 0.42)",
           }}
         >
           <div>grep · read · ast · git · recurse</div>
