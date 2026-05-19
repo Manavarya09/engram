@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SITE_REPO } from "./seo-config";
 
 const SECTIONS = [
@@ -34,7 +35,7 @@ function Toc() {
       </nav>
       <hr className="doc-toc-rule" />
       <div className="doc-toc-meta">
-        Manavarya Singh<br />
+        Manav Arya Singh<br />
         May 2026<br />
         MIT
       </div>
@@ -55,7 +56,7 @@ function Body() {
         loaded into context. Claude examines it through five logged primitives.
       </p>
       <p className="doc-byline">
-        Manavarya Singh · May 2026
+        Manav Arya Singh · May 2026
       </p>
 
       <div className="doc-tldr">
@@ -329,7 +330,7 @@ $ npm install -g engram`}</code></pre>
         </a>{" "}
         in the repo. The full positioning &mdash; with citations, evaluation
         methodology, and threat model &mdash; is in the{" "}
-        <a href="/paper">paper</a>.
+        <Link href="/paper">paper</Link>.
       </p>
 
       <p>

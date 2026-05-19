@@ -3,7 +3,7 @@
   "description": "The first Recursive Language Model engine for Claude Code. The codebase is never loaded into context — Claude examines it via a logged REPL of five coding-native primitives (grep, read, ast, git, recurse). Verifiable, local-first, infinite-feeling context.",
   "version": "0.0.1",
   "author": {
-    "name": "Manavarya Singh",
+    "name": "Manav Arya Singh",
     "url": "https://github.com/Manavarya09"
   },
   "homepage": "https://github.com/Manavarya09/engram",

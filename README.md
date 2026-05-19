@@ -7,19 +7,19 @@
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │  USER PROMPT                                                    │
-│    ↓                                                            │
-│  Claude (parent) — sees ONLY the prompt + the 5-primitive       │
-│  tool catalog. Codebase is NOT in the window.                   │
-│    ↓ programmatically calls                                     │
+│    v                                                            │
+│  Claude (parent) -- sees ONLY the prompt + 5-primitive tools.   │
+│  The codebase is NOT in the context window.                     │
+│    v programmatically calls                                     │
 │  engram REPL                                                    │
-│    ├─ grep    — bounded text search, file:line:col + context    │
-│    ├─ read    — file slice (NEVER full files, ≤400 lines)       │
-│    ├─ ast     — TS compiler API: functions/classes/exports/…   │
-│    ├─ git     — log / blame / diff, bounded                     │
-│    └─ recurse — delegate dense snippet to a Task subagent       │
-│    ↓ every call appended to                                     │
+│    |- grep     bounded text search, file:line:col + context     │
+│    |- read     file slice (never full files, <= 400 lines)      │
+│    |- ast      TS compiler API: functions, classes, exports     │
+│    |- git      log / blame / diff, bounded                      │
+│    |_ recurse  delegate dense snippet to a Task subagent        │
+│    v every call appended to                                     │
 │  .engram/journal.jsonl  (sha256-hashed, replayable, local-only) │
-│    ↓                                                            │
+│    v                                                            │
 │  Claude composes the final answer from primitive results.       │
 │  Final reply ends with `## Provenance` citing journal IDs.      │
 └─────────────────────────────────────────────────────────────────┘
@@ -139,7 +139,7 @@ See [ARCHITECTURE.md](./docs/ARCHITECTURE.md) for the 8-tier vision and
 
 ## License
 
-MIT © 2026 Manavarya Singh
+MIT © 2026 Manav Arya Singh
 
 ## Citation
 
@@ -147,7 +147,7 @@ If you use engram in research, please cite:
 
 ```bibtex
 @software{singh2026engram,
-  author = {Singh, Manavarya},
+  author = {Singh, Manav Arya},
   title  = {engram: A Recursive Language Model Engine for Coding Agents},
   year   = {2026},
   url    = {https://github.com/Manavarya09/engram}

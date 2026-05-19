@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import {
   SITE_URL,
@@ -49,13 +50,13 @@ export const metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     locale: "en_US",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "engram", type: "image/png" }],
+    images: [{ url: "/og.svg", width: 1200, height: 630, alt: "engram", type: "image/svg+xml" }],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/opengraph-image"],
+    images: ["/og.svg"],
     creator: "@manavaryasingh",
   },
   robots: {
@@ -85,12 +86,12 @@ export const viewport = {
 function DocTop() {
   return (
     <header className="doc-top">
-      <a href="/" className="doc-top-brand" aria-label="engram">
+      <Link href="/" className="doc-top-brand" aria-label="engram">
         <span className="doc-mark" aria-hidden>ɘ</span>
         <span>engram</span>
-      </a>
+      </Link>
       <nav className="doc-top-links" aria-label="primary">
-        <a href="/paper">paper</a>
+        <Link href="/paper">paper</Link>
         <a href={SITE_REPO} target="_blank" rel="noreferrer">source</a>
       </nav>
     </header>
@@ -101,13 +102,13 @@ function DocFoot() {
   return (
     <footer className="doc-foot">
       <span className="doc-foot-sign">
-        — Manavarya, May 2026
+        — Manav Arya, May 2026
       </span>
       <span>
         MIT licensed ·{" "}
         <a href={SITE_REPO} target="_blank" rel="noreferrer">github</a>{" "}
         ·{" "}
-        <a href="/paper">paper</a>
+        <Link href="/paper">paper</Link>
       </span>
     </footer>
   );

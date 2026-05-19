@@ -1,6 +1,6 @@
 # engram: A Recursive Language Model Engine for Coding Agents
 
-**Manavarya Singh**
+**Manav Arya Singh**
 *Independent · 2026*
 
 `engram@manavarya.com` · [github.com/Manavarya09/engram](https://github.com/Manavarya09/engram)
@@ -535,7 +535,7 @@ deeply informed by Anthropic's published context-engineering guidance
 
 ```bibtex
 @software{singh2026engram,
-  author = {Singh, Manavarya},
+  author = {Singh, Manav Arya},
   title  = {engram: A Recursive Language Model Engine for Coding Agents},
   year   = {2026},
   url    = {https://github.com/Manavarya09/engram}

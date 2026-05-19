@@ -16,7 +16,7 @@ export const SITE_KEYWORDS = [
   "local-first",
 ];
 export const SITE_AUTHOR = {
-  name: "Manavarya Singh",
+  name: "Manav Arya Singh",
   url: "https://manavaryasingh.com",
 };
 export const SITE_REPO = "https://github.com/Manavarya09/engram";
