@@ -12,7 +12,7 @@
  */
 
 import { spawnSync } from "node:child_process";
-import { resolve } from "node:path";
+import { resolve, sep } from "node:path";
 
 import { run } from "../engine/runner.ts";
 import type {
@@ -164,7 +164,7 @@ function resolveFile(cwd: string, file: string): string {
   // Defense in depth: even though we use argv (no shell), force the path
   // into the repo root so an absolute or .. path can't reference outside cwd.
   const r = resolve(cwd, file);
-  if (!r.startsWith(cwd)) {
+  if (r !== cwd && !r.startsWith(cwd + sep)) {
     throw new Error(`path escapes cwd: ${file}`);
   }
   return r;
